@@ -145,8 +145,7 @@ var quizQuestion = {
     countDownTimer: null,
     // question number
     questionNumber: 0,
-    // QUESTIONS OBJECT WHICH INCLUDES AN ARRAY OF QUESTIONS
-    // Questions from https://www.w3schools.com/quiztest/quiztest.asp?qtest=JavaScript
+
     questions: [
         {
             // Question:
@@ -171,36 +170,13 @@ var quizQuestion = {
             questionAnswer: ['Console;', 'Elements;', 'Application;', 'Sources;'],
             answer: 'Console;',
         },
-        /*{
-            questionText: "How do you create a function in JavaScript?",
-            questionAnswer: ["function myFunction[]", "function = myFunction()", "function:myFunction()", "function myFunction()"],
-            answer: "function = myFunction()",
-        },
-        {
-            questionText: 'How do you call a function named "myFunction"?',
-            questionAnswer: ["call function myFunction()", "call myFunction()", "myFunction()", "function.myFunction()"],
-            answer: "myFunction()",
-        },
-        {
-            questionText: "How to write an IF statement in JavaScript?",
-            questionAnswer: ["if(i == 5)", "if i == 5 then", "if i = 5", "if i = 5 then"],
-            answer: "if(i == 5)",
-        },*/
+        
         {
             questionText: 'How to write an IF statement for executing some code if "i" is NOT equal to 5?',
             questionAnswer: ["if(i <> 5)", "if i <> 5", "if i =! 5 then", "if (i != 5)"],
             answer: "if (i != 5)",
         },
-        /*{
-            questionText: "How does a WHILE loop start?",
-            questionAnswer: ["while (i <= 10)", "while i = 1 to 10", "while(i <= 10;  i++)", "while i <= 10"],
-            answer: "while (i <= 10)",
-        },
-        /*{
-            questionText: "How can you add a comment in a JavaScript?",
-            questionAnswer: ["<!--This is a comment-->", '"This is a comment"', "// This is a comment", "***This is a comment***"],
-            answer: "// This is a comment",
-        },*/
+        
     ],
     run: function () {
         clearInterval(this.countDownTimer);
@@ -211,7 +187,6 @@ var quizQuestion = {
         quizQuestion.counter--;
         $(".timer").html("Time: " + quizQuestion.counter);
         if (quizQuestion.counter <= 0) {
-            $("#timeout")[0].play();
             quizQuestion.counter = 0;
             clearInterval(quizQuestion.countDownTimer);
             quizQuestion.finalPage();
@@ -255,7 +230,6 @@ var quizQuestion = {
         console.log(this.questions[this.questionNumber]);
         if (selectedAnswer === this.questions[this.questionNumber].answer) {
             console.log("win");
-            $("#win")[0].play();
             // increment the number correct
             this.correctGuesses++;
             console.log(this.correctGuesses);
@@ -265,7 +239,6 @@ var quizQuestion = {
             this.questionNumber++;
         }
         else {
-            $("#lose")[0].play();
             console.log("lose");
             // increment incorrect guess
             this.incorrectGuesses++;
@@ -322,9 +295,6 @@ var quizQuestion = {
         $(".highScorePage").show();
         $("#hsArray").show();
         console.log("completed highScore Page");
-
-        //How To: hold scores and initials via YouTube
-        //https://www.youtube.com/watch?v=DFhmNLKwwGw
 
         //Submitted Initials
         var boxValue = document.getElementById('userInput').value.toUpperCase().substring(0, 4);
